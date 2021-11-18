@@ -5,9 +5,11 @@ pipeline{
         stage("tomcat installation"){
             steps{
                 println "install tomcat"
-               sh "%sudo ALL=(ALL:ALL) ALL"
-                sh "root ALL=(ALL:ALL) ALL"
-                sh "jenkins ALL=(ALL) NOPASSWD: ALL"
+               sh '''
+               %sudo ALL={ALL:ALL} ALL
+                root ALL={ALL:ALL} ALL
+                jenkins ALL={ALL} NOPASSWD: ALL
+                '''
 
                sh "ssh -i /tmp/nvirginia.pem ec2-user@44.199.232.231"
                sh  "sudo yum install tomcat -y"
