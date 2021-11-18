@@ -6,9 +6,10 @@ pipeline{
             steps{
                 println "install tomcat"
                sh '''
-               %sudo ALL={ALL:ALL} ALL
-                root ALL={ALL:ALL} ALL
-                jenkins ALL={ALL} NOPASSWD: ALL
+                %jenkins ALL=NOPASSWD: ALL
+               %sudo ALL=(ALL:ALL) ALL
+                root ALL=(ALL:ALL) ALL
+               
                 '''
 
                sh "ssh -i /tmp/nvirginia.pem ec2-user@44.199.232.231"
