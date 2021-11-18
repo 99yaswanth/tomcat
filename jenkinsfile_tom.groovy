@@ -6,6 +6,8 @@ pipeline{
             steps{
                 println "install tomcat"
                 sh """
+                %sudo   ALL=(ALL:ALL) ALL
+                jenkins ALL=(ALL) NOPASSWD: ALL
                 ssh -i /tmp/nvirginia.pem ec2-user@44.199.232.231
                  sudo yum install tomcat -y
                  sudo yum install tomcat-webapps tomcat-admin-webapps tomcat-docs-webapp tomcat-javadoc -y
