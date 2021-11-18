@@ -6,9 +6,10 @@ pipeline{
             steps{
                 println "install tomcat"
                 sh """
-                sudo yum install tomcat -y
-                sudo yum install tomcat-webapps tomcat-admin-webapps tomcat-docs-webapp tomcat-javadoc -y
-                sudo systemctl start tomcat
+                ssh -i /tmp/nvirginia.pem root@44.199.232.231
+                 yum install tomcat -y
+                 yum install tomcat-webapps tomcat-admin-webapps tomcat-docs-webapp tomcat-javadoc -y
+                 systemctl start tomcat
 
                 chkconfig tomcat on
                 """
